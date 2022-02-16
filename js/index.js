@@ -23,7 +23,7 @@ document.getElementById('calculate').addEventListener('click', function(){
     rentExpenseValue = rentExpense.value;
     clothesExpenseValue = clothesExpense.value;
     incomeValue = income.value;
-
+ 
     const expense = addTotalExpenses(foodExpenseValue, rentExpenseValue, clothesExpenseValue);
 
     expenseAmountText.innerText = expense;
@@ -41,14 +41,22 @@ document.getElementById('calculate').addEventListener('click', function(){
 //save button funtionality here:
 document.getElementById('save').addEventListener('click', function(){
     savingAmountValue = save.value;
-    savingAmount = (parseFloat(balanceAmount) * parseFloat(savingAmountValue)) / 100;
-    savingAmountText.innerText = savingAmount;
+    if(savingAmountValue >= 0 && savingAmountValue <= 100){
+        savingAmount = (parseFloat(incomeValue) * parseFloat(savingAmountValue)) / 100;
+        savingAmountText.innerText = savingAmount;
+        //remaining balance:
+        if(savingAmount < balanceAmount){
+            remainingBalance = parseFloat(balanceAmount) - parseFloat(savingAmount);
+            remainingAmountText.innerText = remainingBalance;
+        }
+        else{
+            remainingAmountText.innerText = 'saving amount can not be more than balance';
+        }
+    }
+    else{
+        savingAmountText.innerText = 'please give between 0 to 100';
+    }
 
-
-    //remaining balance:
-    remainingBalance = parseFloat(balanceAmount) - parseFloat(savingAmount);
-    remainingAmountText.innerText = remainingBalance;
-    
     save.value = '';
 })
 
