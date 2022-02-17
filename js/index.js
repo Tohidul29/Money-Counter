@@ -68,8 +68,9 @@ document.getElementById('save').addEventListener('click', function () {
         remainingBalance = parseFloat(balanceAmount) - parseFloat(savingAmount);
         remainingAmountNumber.innerText = remainingBalance;
     } else {
-        remainingAmountText.innerText = 'Sorry, saving amount can not be more than balance';
+        remainingAmountText.innerText = 'Sorry, saving amount can not be more than balance or you can not give saving input as empty';
         remainingAmountText.style.color = 'rgba(161,0,8,0.85)';
+        savingAmountText.style.display = 'none';
     }
 })
 
