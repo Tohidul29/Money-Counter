@@ -64,7 +64,7 @@ document.getElementById('save').addEventListener('click', function () {
     savingAmountNumber.innerText = savingAmount;
 
     // remaining balance:
-    if (savingAmount < balanceAmount) {
+    if (savingAmount <= balanceAmount) {
         remainingBalance = parseFloat(balanceAmount) - parseFloat(savingAmount);
         remainingAmountNumber.innerText = remainingBalance;
     } else {
