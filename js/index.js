@@ -38,6 +38,10 @@ document.getElementById('calculate').addEventListener('click', function () {
         totalExpenseText.innerText = 'Sorry, you spent more than your income !!!';
         balanceAmountText.style.display = 'none';
         totalExpenseText.style.color = 'rgba(197,46,54,0.85)';
+        foodExpense.value = '';
+        rentExpense.value = '';
+        clothesExpense.value = '';
+        income.value = '';
     } else {
         expenseAmountNumber.innerText = expense;
         balanceAmount = parseFloat(incomeValue) - parseFloat(expense);
@@ -51,7 +55,7 @@ document.getElementById('save').addEventListener('click', function () {
     incomeValue = income.value;
     savingAmountValue = save.value;
 
-    if (!(inputValidationChecking(savingAmountValue))) {
+    if (!(inputValidationChecking(incomeValue) && inputValidationChecking(foodExpenseValue) && inputValidationChecking(rentExpenseValue) && inputValidationChecking(clothesExpenseValue)) && inputValidationChecking(savingAmountValue)) {
         return;
     }
 
@@ -80,6 +84,7 @@ function inputValidationChecking(userInput) {
         totalExpenseText.innerText = 'Invalid or empty input !!!';
         totalExpenseText.style.color = 'rgba(245,6,18,0.85)';
         balanceAmountText.style.display = 'none';
+        savingAmountText.style.display = 'none';
         return false;
     }
 }
