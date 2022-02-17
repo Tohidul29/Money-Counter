@@ -35,7 +35,7 @@ document.getElementById('calculate').addEventListener('click', function () {
     const expense = addTotalExpenses(foodExpenseValue, rentExpenseValue, clothesExpenseValue);
 
     if (expense > incomeValue) {
-        totalExpenseText.innerText = 'Sorry, you spent more than your income !';
+        totalExpenseText.innerText = 'Sorry, you spent more than your income !!!';
         balanceAmountText.style.display = 'none';
         totalExpenseText.style.color = 'rgba(197,46,54,0.85)';
     } else {
@@ -77,7 +77,7 @@ function inputValidationChecking(userInput) {
     }
     else {
         //if invalid input:
-        totalExpenseText.innerText = 'Invalid or empty input !';
+        totalExpenseText.innerText = 'Invalid or empty input !!!';
         totalExpenseText.style.color = 'rgba(245,6,18,0.85)';
         balanceAmountText.style.display = 'none';
         return false;
